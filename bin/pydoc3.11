@@ -1,0 +1,5 @@
+#!/Users/markmonce/anaconda3/envs/venvJun24/bin/python3.11
+
+import pydoc
+if __name__ == '__main__':
+    pydoc.cli()

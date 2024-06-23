@@ -1,0 +1,13 @@
+prefix=/Users/markmonce/anaconda3/envs/venvJun24
+exec_prefix=/Users/markmonce/anaconda3/envs/venvJun24
+libdir=/Users/markmonce/anaconda3/envs/venvJun24/lib
+sharedlibdir=/Users/markmonce/anaconda3/envs/venvJun24/lib
+includedir=/Users/markmonce/anaconda3/envs/venvJun24/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
