@@ -1,14 +1,22 @@
 #As we had to do in the flaskdb-createtable.py, we need to ALSO import that app object from flaskdb_basic.py
 
-from flaskdb_basic import db, Puppy, app
+from flaskdb_basic import db, Puppy, Owner, Toy app
 
 my_puppy = Puppy('Sky', 3) ##No need for app_context, here becase we are simply creating a new objet as defined in flaskdb_basic.py
+
+################################################
+############## ---------ADD-------##############
+################################################
 
 with app.app_context(): ##CANNOT EXECUTE COMMANDS TO THE DATABASE WITHOUT THE app_context!!!!
     db.session.add(my_puppy)
     db.session.commit()
     db.session.close
 
+
+################################################
+############## --------READ-------##############
+################################################
 
 with app.app_context():
     #NOTE: With simple queries, you do not need to open a session since you are not making changes to the database
@@ -27,6 +35,11 @@ with app.app_context():
     #print("\nGets a puppy with the query.get() command: " + some_puppy.name+"\n")
     print("\nMore modern version of a query: " + another_puppy.name)
 
+
+################################################
+############## ------DELETE-------##############
+################################################
+
 #To delete all dogs named "sky" --- Sorry Sky
 with app.app_context():
      
@@ -37,6 +50,9 @@ with app.app_context():
         db.session.commit()
 
 # To update a specific record
+################################################
+############## ------UPDATE-------##############
+################################################
 
 with app.app_context():
     some_puppy = db.session.get(Puppy, 2)
